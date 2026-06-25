@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+/* ─── Design Tokens ─────────────────────────────────────────── */
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --primary: #1a56db;
+  --primary-hover: #1e429f;
+  --indigo-950: #0f172a;
+  --indigo-900: #1e293b;
+  --light-blue: #eff6ff;
+  --light-gray: #f8fafc;
+  --slate-gray: #64748b;
+  --border: #e5e7eb;
+  --card-bg: #ffffff;
+  --card-hover-border: #1a56db;
+  --glass-bg: rgba(255,255,255,0.85);
+  --glass-border: rgba(26,86,219,0.12);
+  --glass-shadow: rgba(0,0,0,0.06);
+  --grid-line: #e5e7eb;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-indigo-950: var(--indigo-950);
+  --color-light-blue: var(--light-blue);
+  --color-light-gray: var(--light-gray);
+  --color-slate-gray: var(--slate-gray);
+  --color-border: var(--border);
+  --color-card-bg: var(--card-bg);
+  --color-card-hover-border: var(--card-hover-border);
+}
+
+/* ─── Base ───────────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--light-gray); }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+/* ─── Glass ──────────────────────────────────────────────────── */
+.glass-effect {
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 16px var(--glass-shadow);
+}
+
+/* ─── Grid Background ────────────────────────────────────────── */
+.grid-bg {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 70px 70px;
+}
+
+/* ─── Animated beams ─────────────────────────────────────────── */
+@keyframes beam-x {
+  0%   { transform: translateX(-100%); opacity: 0; }
+  10%  { opacity: 0.6; }
+  90%  { opacity: 0.6; }
+  100% { transform: translateX(calc(100vw + 600px)); opacity: 0; }
+}
+@keyframes beam-y {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  10%  { opacity: 0.6; }
+  90%  { opacity: 0.6; }
+  100% { transform: translateY(calc(100vh + 400px)); opacity: 0; }
+}
+.animate-beam-x { animation: beam-x linear infinite; }
+.animate-beam-y { animation: beam-y linear infinite; }
+
+/* ─── Marquee ────────────────────────────────────────────────── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* ─── Slow spin ──────────────────────────────────────────────── */
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow { animation: spin-slow 12s linear infinite; }
+
+/* ─── Floating ───────────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+.animate-float { animation: float 4s ease-in-out infinite; }
+
+/* ─── Mega Menu ─────────────────────────────────────────────── */
+.mega-menu-enter {
+  animation: mega-menu-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes mega-menu-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
