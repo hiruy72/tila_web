@@ -20,6 +20,7 @@ const links = [
 
 export default function CompanyResourcePage() {
   const content = getPageContent("/resources/company", {
+    title: "Company",
     description: "Learn about our mission, meet the team, and understand our process.",
   });
 

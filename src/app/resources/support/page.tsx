@@ -20,6 +20,7 @@ const links = [
 
 export default function SupportResourcePage() {
   const content = getPageContent("/resources/support", {
+    title: "Support",
     description: "Contact our team, browse FAQs, or request a project quote.",
   });
 

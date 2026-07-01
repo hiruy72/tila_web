@@ -12,7 +12,8 @@ export const metadata: Metadata = {
 
 export default function GetAQuotePage() {
   const content = getPageContent("/resources/get-a-quote", {
-    description: "Share your requirements and receive a tailored proposal.",
+    title: "Get a Quote",
+    description: "Share your project details to receive a customized implementation plan.",
   });
 
   return (
