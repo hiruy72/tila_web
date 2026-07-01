@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 const industries = [
   {
     icon: GraduationCap,
+    title: "Healthcare & EdTech",
     headline: "Build for regulated, high-compliance environments",
     desc: "We engineer secure School Management Systems, Hospital ERPs, learning portals, and HIPAA-compliant patient platforms where security, compliance, and database integrity are mandatory.",
     features: ["HIPAA & Data Privacy Native", "LMS & Exam Engines", "School/Hospital Integrations"],
@@ -23,6 +24,7 @@ const industries = [
   },
   {
     icon: CreditCard,
+    title: "Fintech & Billing",
     headline: "Scalable, secure transaction layers and automated billing",
     desc: "Integrate regional payment gateways, multi-currency invoice generators, double-entry bookkeeping ledgers, and subscription billing systems.",
     features: ["PCI-DSS Compliant Systems", "Automated Billing & Payouts", "VAT & Local Tax Configs"],
@@ -30,6 +32,7 @@ const industries = [
   },
   {
     icon: ShoppingBag,
+    title: "Commerce",
     headline: "Modern commerce engines scaling beyond basic templates",
     desc: "Custom headless commerce storefronts, multi-vendor marketplaces, product recommendation engines, and stock warehouse tracking apps.",
     features: ["Headless API Integration", "Warehouse Inventory Sync", "Custom Checkout Pipelines"],
@@ -37,6 +40,7 @@ const industries = [
   },
   {
     icon: Bot,
+    title: "AI Platforms",
     headline: "Deploy AI solutions directly into existing ecosystems",
     desc: "Build AI-powered chatbots, Retrieval Augmented Generation (RAG) models, automated customer service desks, and analytics prediction modelers.",
     features: ["RAG Knowledge Bases", "NLP Text Analysis", "Biometrics & OCR Core"],
