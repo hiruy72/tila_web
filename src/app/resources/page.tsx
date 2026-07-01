@@ -16,26 +16,29 @@ export const metadata: Metadata = {
 const resourceHubs = [
   {
     icon: Building2,
+    title: "Company",
     desc: "Our mission, team, and the process we follow on every engagement.",
     href: "/resources/company",
   },
   {
     icon: Layers,
+    title: "Solutions",
     desc: "Explore deployment-ready platforms for education, healthcare, retail, and AI.",
     href: "/solutions",
   },
   {
     icon: Headphones,
+    title: "Support",
     desc: "Contact us, browse FAQs, or request a tailored project quote.",
     href: "/resources/support",
   },
 ];
 
 const resourceCards = [
-  { icon: Users, desc: "Learn about our mission, values, and the team behind Tila Technology.", href: "/about" },
-  { icon: BookOpen, desc: "Meet the engineers, designers, and strategists building for Africa.", href: "/team" },
-  { icon: Layers, desc: "Discover how we plan, build, and deliver software from discovery to launch.", href: "/resources/process" },
-  { icon: HelpCircle, desc: "Answers to common questions about our services, timelines, and engagement models.", href: "/resources/faq" },
+  { icon: Users, title: "About Us", desc: "Learn about our mission, values, and the team behind Tila Technology.", href: "/about" },
+  { icon: BookOpen, title: "Our Team", desc: "Meet the engineers, designers, and strategists building for Africa.", href: "/team" },
+  { icon: Layers, title: "Our Process", desc: "Discover how we plan, build, and deliver software from discovery to launch.", href: "/resources/process" },
+  { icon: HelpCircle, title: "FAQ", desc: "Answers to common questions about our services, timelines, and engagement models.", href: "/resources/faq" },
 ];
 
 export default function ResourcesPage() {
