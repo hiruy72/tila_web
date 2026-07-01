@@ -9,7 +9,6 @@ import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 
 export const metadata: Metadata = {
-  title: "Services | Tila Technology PLC",
   description:
     "Tila Technology PLC offers website development, mobile apps, ERP systems, AI & ML, cybersecurity, cloud & DevOps, and SaaS development services.",
 };

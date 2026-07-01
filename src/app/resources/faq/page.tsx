@@ -6,7 +6,6 @@ import PageHero from "@/components/PageHero";
 import FAQ from "@/components/FAQ";
 
 export const metadata: Metadata = {
-  title: "FAQ | Tila Technology PLC",
   description: "Frequently asked questions about Tila Technology services, timelines, and engagement.",
 };
 

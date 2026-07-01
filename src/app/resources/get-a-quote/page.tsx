@@ -7,13 +7,11 @@ import RichPageLayout from "@/components/RichPageLayout";
 import { getPageContent } from "@/data/pageContent";
 
 export const metadata: Metadata = {
-  title: "Get a Quote | Tila Technology PLC",
   description: "Request a tailored project proposal from Tila Technology PLC.",
 };
 
 export default function GetAQuotePage() {
   const content = getPageContent("/resources/get-a-quote", {
-    title: "Get a Quote",
     description: "Share your requirements and receive a tailored proposal.",
   });
 

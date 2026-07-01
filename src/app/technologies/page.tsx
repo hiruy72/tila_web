@@ -9,7 +9,6 @@ import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 
 export const metadata: Metadata = {
-  title: "Technologies | Tila Technology PLC",
   description:
     "Explore the modern technology stack Tila Technology uses — AI & ML, Frontend, Backend, Mobile, Database, Cloud, DevOps, and more.",
 };

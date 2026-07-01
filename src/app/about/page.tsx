@@ -7,7 +7,6 @@ import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 
 export const metadata: Metadata = {
-  title: "About Us | Tila Technology PLC",
   description:
     "Learn about Tila Technology PLC — our mission, vision, core values, and why leading organizations in Ethiopia choose us as their technology partner.",
 };

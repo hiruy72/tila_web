@@ -9,7 +9,6 @@ import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 
 export const metadata: Metadata = {
-  title: "Solutions | Tila Technology PLC",
   description:
     "Explore Tila Technology's flagship software solutions: School ERP, Hospital ERP, Inventory Management, AI Chatbot, CRM, LMS, and more.",
 };

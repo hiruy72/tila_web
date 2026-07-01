@@ -9,7 +9,6 @@ import { getPageContent } from "@/data/pageContent";
 import { ArrowRight, Mail, HelpCircle, FileText } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Support | Resources | Tila Technology PLC",
   description: "Contact Tila Technology, browse FAQs, or request a project quote.",
 };
 
@@ -21,7 +20,6 @@ const links = [
 
 export default function SupportResourcePage() {
   const content = getPageContent("/resources/support", {
-    title: "Support",
     description: "Contact our team, browse FAQs, or request a project quote.",
   });
 

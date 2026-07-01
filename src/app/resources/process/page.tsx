@@ -6,7 +6,6 @@ import PageHero from "@/components/PageHero";
 import Process from "@/components/Process";
 
 export const metadata: Metadata = {
-  title: "Our Process | Tila Technology PLC",
   description: "How Tila Technology plans, builds, and delivers software from discovery to deployment.",
 };
 

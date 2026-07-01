@@ -22,7 +22,6 @@ export function generateCategoryMetadata(menu: MegaMenuConfig, categorySlug: str
     description: category.desc ?? menu.desc,
   });
   return {
-    title: `${content.title} | Tila Technology PLC`,
     description: content.description,
   };
 }
@@ -94,7 +93,6 @@ export function generateItemMetadata(
     description: `${item.name} — ${category.name} at Tila Technology PLC.`,
   });
   return {
-    title: `${content.title} | ${category.name} | Tila Technology PLC`,
     description: content.description,
   };
 }

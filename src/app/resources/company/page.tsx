@@ -9,7 +9,6 @@ import { getPageContent } from "@/data/pageContent";
 import { ArrowRight, Users, BookOpen, Layers } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Company | Resources | Tila Technology PLC",
   description: "Learn about Tila Technology — our mission, team, and delivery process.",
 };
 
@@ -21,7 +20,6 @@ const links = [
 
 export default function CompanyResourcePage() {
   const content = getPageContent("/resources/company", {
-    title: "Company",
     description: "Learn about our mission, meet the team, and understand our process.",
   });
 

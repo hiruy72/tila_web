@@ -6,7 +6,6 @@ import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 
 export const metadata: Metadata = {
-  title: "Our Team | Tila Technology PLC",
   description:
     "Meet the founding team behind Tila Technology PLC — visionary leaders driving innovation in software, AI, and digital transformation from Addis Ababa.",
 };

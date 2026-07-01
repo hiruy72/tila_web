@@ -5,7 +5,6 @@ import Contact from "@/components/Contact";
 import FAQ from "@/components/FAQ";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Tila Technology PLC",
   description:
     "Get in touch with Tila Technology PLC. Book a free consultation or request a custom quote for software engineering, ERP solutions, website development, AI projects, and cybersecurity.",
 };
