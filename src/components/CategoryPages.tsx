@@ -3,10 +3,18 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
 import Testimonials from "@/components/Testimonials";
-import RichPageLayout from "@/components/RichPageLayout";
+import RichPageLayout, { type PageVariant } from "@/components/RichPageLayout";
 import { MegaMenuConfig, findCategoryBySlug, findItemInMenu } from "@/data/navigation";
 import { getPageContent } from "@/data/pageContent";
 import { getPageImageSet } from "@/data/pageImages";
+
+function getVariant(menuId: string): PageVariant {
+  if (menuId === "solutions") return "solutions";
+  if (menuId === "services") return "services";
+  if (menuId === "industries") return "industries";
+  if (menuId === "technologies") return "technologies";
+  return "resources";
+}
 
 interface CategoryPageProps {
   menu: MegaMenuConfig;
@@ -36,6 +44,7 @@ export function CategoryPage({ menu, categorySlug, sectionLabel }: CategoryPageP
   });
 
   const imageSet = getPageImageSet(category.href);
+  const variant = getVariant(menu.id);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -44,6 +53,7 @@ export function CategoryPage({ menu, categorySlug, sectionLabel }: CategoryPageP
         <RichPageLayout
           content={content}
           eyebrow={sectionLabel}
+          variant={variant}
           breadcrumb={[
             { label: sectionLabel, href: menu.href },
             { label: category.name, href: category.href },
@@ -108,6 +118,7 @@ export function ItemPage({ menu, categorySlug, itemSlug, sectionLabel }: ItemPag
   });
 
   const imageSet = getPageImageSet(item.href);
+  const variant = getVariant(menu.id);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -116,6 +127,7 @@ export function ItemPage({ menu, categorySlug, itemSlug, sectionLabel }: ItemPag
         <RichPageLayout
           content={content}
           eyebrow={category.name}
+          variant={variant}
           breadcrumb={[
             { label: sectionLabel, href: menu.href },
             { label: category.name, href: category.href },

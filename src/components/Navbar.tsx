@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowRight, ChevronRight } from "lucide-react";
+import { Menu, X, ArrowRight, ChevronRight, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   megaMenus,
@@ -28,6 +28,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [activeSubTab, setActiveSubTab] = useState<string>("");
+  const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
   const pathname = usePathname();
 
   const activeMenu = activeDropdown ? getMenuById(activeDropdown) : undefined;
@@ -148,9 +149,9 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.99 }}
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute top-full left-0 right-0 hidden lg:block pointer-events-auto"
+            className="absolute top-[calc(100%-8px)] left-0 right-0 hidden lg:block pointer-events-auto pt-2"
           >
-            <div className="max-w-[1400px] mx-auto px-6 lg:px-8 pt-3 pb-6">
+            <div className="max-w-[1400px] mx-auto px-6 lg:px-8 pb-6">
               <div className="bg-white rounded-2xl border border-slate-200/80 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.12)] overflow-hidden">
                 <div className="flex min-h-[420px]">
                   {/* Left sidebar */}
@@ -264,20 +265,58 @@ export default function Navbar() {
             className="lg:hidden overflow-hidden bg-white/98 backdrop-blur-xl border-t border-slate-150"
           >
             <div className="px-6 py-6 flex flex-col gap-1 max-h-[80vh] overflow-y-auto">
-              {simpleNavLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className={`text-[15px] font-semibold py-3 border-b border-slate-100 transition-colors ${
-                    pathname === link.href || pathname.startsWith(`${link.href}/`)
-                      ? "text-primary"
-                      : "text-slate-700 hover:text-primary"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ))}
+              {simpleNavLinks.map((link) => {
+                const mega = megaMenus.find((m) => m.label.toLowerCase() === link.name.toLowerCase());
+                const hasMega = !!mega;
+
+                return (
+                  <div key={link.href} className="border-b border-slate-100 py-1">
+                    <div className="flex items-center justify-between">
+                      <Link
+                        href={link.href}
+                        onClick={() => setIsOpen(false)}
+                        className={`text-[15px] font-semibold py-2 transition-colors flex-1 ${
+                          pathname === link.href || pathname.startsWith(`${link.href}/`)
+                            ? "text-primary"
+                            : "text-slate-700 hover:text-primary"
+                        }`}
+                      >
+                        {link.name}
+                      </Link>
+                      {hasMega && (
+                        <button
+                          onClick={() => setExpandedMenu(expandedMenu === link.name ? null : link.name)}
+                          className="p-2 text-slate-400 hover:text-primary transition-colors"
+                          aria-label={`Toggle ${link.name} submenu`}
+                        >
+                          <ChevronDown
+                            size={16}
+                            className={`transition-transform duration-200 ${
+                              expandedMenu === link.name ? "rotate-180 text-primary" : ""
+                            }`}
+                          />
+                        </button>
+                      )}
+                    </div>
+
+                    {/* Subcategories (Indented) */}
+                    {hasMega && expandedMenu === link.name && (
+                      <div className="pl-4 pb-2 space-y-1.5 border-l-2 border-slate-100/80 mt-1 flex flex-col">
+                        {mega.categories.map((cat) => (
+                          <Link
+                            key={cat.id}
+                            href={cat.href}
+                            onClick={() => setIsOpen(false)}
+                            className="text-[13.5px] font-bold text-slate-500 hover:text-primary py-1.5 transition-colors"
+                          >
+                            {cat.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
               <Link
                 href="/contact"
                 onClick={() => setIsOpen(false)}
